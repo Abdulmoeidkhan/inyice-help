@@ -1,0 +1,17 @@
+node_modules
+.next
+.git
+.env*
+artifacts
+*.md
+**/node_modules
+**/.env*
+.agents
+.codex
+.vscode
+.idea
+out
+coverage
+exports
+*.log
+*.tsbuildinfo

@@ -1,0 +1,53 @@
+export type HelpScreenshot = { src: string; caption: string; width: number; height: number };
+// Reviewed images are published separately from local capture/session artifacts.
+const dimensions: Record<string, [number, number]> = {
+  'add-customer': [520, 814], 'add-vendor': [520, 900],
+  flights: [1184, 1028], 'gds-parser': [1184, 1028], passengers: [1184, 1028],
+  'vendor-refund-allocation': [1184, 1028],
+  'forgot-password': [1440, 1000], 'reset-password': [1440, 1000],
+};
+const shot = (file: string, caption: string): HelpScreenshot => {
+  const [width, height] = dimensions[file] ?? [1184, 928];
+  return { src: `/images/portal/${file}.png`, caption, width, height };
+};
+export const screenshots: Record<string, HelpScreenshot[]> = {
+  'dashboard': [shot('dashboard', 'Dashboard overview and upcoming travel activity.')],
+  'navigate-workspace': [shot('dashboard', 'The agency dashboard is the starting point for your workday.')],
+  'first-booking': [shot('create-order', 'Start with the customer, document type, and basic voucher information.')],
+  'create-order': [shot('create-order', 'The Order tab contains Order / Quotation Details and Basic Voucher Information.')],
+  'gds-parser': [shot('gds-parser', 'Choose the GDS Parser tab to enter booking text.')],
+  'voucher-fields': [shot('create-order', 'Basic Voucher Information appears below the customer and document details.'), shot('passengers', 'Use the Passengers section to review traveler fields.')],
+  'flight-pricing': [shot('flights', 'The Flights tab contains flight details and passenger pricing.')],
+  'orders-page': [shot('orders', 'Search orders and use the status filter to narrow the list.')],
+  'edit-order': [shot('orders', 'Start from Orders and locate the record you need to edit.')],
+  'invoices-page': [shot('invoices', 'The invoice list provides status filters and document actions. Record values are hidden.')],
+  'invoice-statuses': [shot('invoices', 'Use the invoice list and its actions to manage an invoice.')],
+  'reference-search': [shot('reference-search', 'Search with booking, invoice, passenger, and other reference fields.')],
+  'receivings': [shot('receivings', 'Record the amount and payer, then review Receiving history.')],
+  'profit-shares': [shot('profit-shares', 'Review available invoice profit, user totals, and transfer history.')],
+  'customer-receipts': [shot('customer-receipts', 'Choose a customer, receipt method, and allocation type.')],
+  'customer-payments': [shot('customer-payments', 'Enter a payment to a customer and review payment history.')],
+  'vendor-payments': [shot('vendor-payments', 'Choose a vendor and allocate the payment to payable orders.')],
+  'vendor-receipts': [shot('vendor-receipts', 'Enter money received from a vendor.')],
+  'refund-allocation': [shot('refund-allocation', 'Customer refund payments are allocated to selected refund orders.'), shot('vendor-refund-allocation', 'Switch to Vendor refund receipts to allocate returned supplier money.')],
+  'refunds': [shot('refund-allocation', 'Use Refund Allocation when settling specific refund orders.')],
+  'customers-page': [shot('customers', 'Search the customer directory. Private customer details are hidden.'), shot('add-customer', 'Add Customer opens a form for contact and currency details.')],
+  'vendors-page': [shot('vendors', 'Search the vendor directory. Private supplier details are hidden.'), shot('add-vendor', 'Add Vendor includes supplier details and payment terms.')],
+  'customers-vendors': [shot('add-customer', 'Create a customer using the Add Customer form.'), shot('add-vendor', 'Create a supplier using the Add Vendor form.')],
+  'company-profile': [shot('company-profile', 'Company Profile shows agency settings, branding, and limits. Private values and assets are hidden.')],
+  'team-permissions': [shot('company-users', 'Review company users and create a user with the appropriate role. Personal details are hidden.')],
+  'user-profile': [shot('user-profile', 'Update your display name from Account Details. Personal details are hidden.')],
+  'aging-report': [shot('aging-report', 'Review outstanding invoices by aging bucket. Financial values are hidden.')],
+  'revenue-report': [shot('revenue-report', 'Choose the period and grouping before generating the revenue report.')],
+  'performance-report': [shot('performance-report', 'Monthly performance groups sales, purchases, and profit/loss by currency. Financial values are hidden.')],
+  'profit-report': [shot('profit-report', 'Choose a view, entity, and date basis before running Profit Report.')],
+  'discount-report': [shot('discount-report', 'Filter invoice discounts by period, type, and customer.')],
+  'receipt-report': [shot('receipt-report', 'Filter money-in records by counterparty, method, and date.')],
+  'payment-report': [shot('payment-report', 'Filter money-out records by counterparty, method, and date.')],
+  'cancelled-report': [shot('cancelled-report', 'Review cancelled records and the available actions. Record values are hidden.')],
+  'customer-statement': [shot('customer-statement', 'Choose a customer and period, then select Generate Statement.')],
+  'vendor-statement': [shot('vendor-statement', 'Choose a vendor and period, then select Generate Statement.')],
+  'statements': [shot('customer-statement', 'Customer Statement shows customer activity.'), shot('vendor-statement', 'Vendor Statement shows supplier activity.')],
+  'forgot-password': [shot('forgot-password', 'Enter your account email to request a password reset link.')],
+  'reset-password': [shot('reset-password', 'An incomplete reset link displays this warning. Open the full link from your email to continue.')],
+};

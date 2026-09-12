@@ -1,0 +1,6 @@
+export const commonQuestions = [
+  { question: 'What does the inYice Help Center cover?', answer: 'The help center explains the inYice travel agency workspace, including bookings, quotations, orders, vouchers, invoices, customer and vendor transactions, reports, and team settings.', slug: 'navigate-workspace' },
+  { question: 'How do I create my first booking in inYice?', answer: 'Add your customer and suppliers, open Create Order, enter or import the booking details, review passengers and pricing, and save the order. Use the saved order’s Invoice action to create an invoice, then record customer money in Customer Receipts.', slug: 'first-booking' },
+  { question: 'Which screen should I use for a receipt or payment?', answer: 'A receipt records money coming in; a payment records money going out. Use Customer Receipts for money received from customers, Customer Payments for money paid to customers, Vendor Receipts for money received from suppliers, and Vendor Payments for money paid to suppliers.', slug: 'money-directions' },
+  { question: 'Why can’t I see a screen mentioned in a guide?', answer: 'Available screens depend on your role. Sales users do not see the Reports group. Ask your company owner or admin to check your access.', slug: 'team-permissions' },
+];
