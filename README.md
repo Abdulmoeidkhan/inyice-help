@@ -117,14 +117,16 @@ Upload the source or connect its Git repository in your manager. Pasted Compose 
 
 ### Network and HTTPS
 
-The default host binding is **`127.0.0.1:3001`**. Configure a reverse proxy running directly on the VPS to forward the domain to this address, preserve host and forwarding headers, and provide HTTPS. Point the domain's DNS at the VPS.
+The default host binding is **`0.0.0.0:3001`**, publishing container port `3001` on all VPS interfaces. Allow inbound TCP port `3001` in the VPS firewall for direct access at `http://VPS_IP:3001`. Create an A record for `help.inyice.com` pointing to the VPS IPv4 address.
+
+DNS does not select a port. To serve `https://help.inyice.com` without `:3001`, configure a reverse proxy on ports `80` and `443` with a TLS certificate, forwarding to the app on port `3001`. A reverse proxy running directly on the VPS can use `http://127.0.0.1:3001`; preserve host and forwarding headers.
 
 | Compose variable | Default | Purpose |
 | --- | --- | --- |
-| `HELP_BIND_ADDRESS` | `127.0.0.1` | Host interface for the published port |
+| `HELP_BIND_ADDRESS` | `0.0.0.0` | Host interface for the published port |
 | `HELP_PORT` | `3001` | Published host port; the container stays on `3001` |
 
-Set these in the VPS `.env` or the manager's Compose environment. Use `HELP_BIND_ADDRESS=0.0.0.0` when access through the VPS network address is needed.
+Set these in the VPS `.env` or the manager's Compose environment. If an existing deployment sets `HELP_BIND_ADDRESS=127.0.0.1`, change it to `0.0.0.0` for direct VPS access, then redeploy the `help-inyice` project. Use `127.0.0.1` when only a reverse proxy running on the host should access the published port.
 
 If the reverse proxy is another container, attach both services to a shared Docker network and use `http://help:3001`. Its own `127.0.0.1` does not point to this app.
 

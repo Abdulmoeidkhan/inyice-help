@@ -5,7 +5,7 @@ services:
     init: true
     restart: unless-stopped
     ports:
-      - "${HELP_BIND_ADDRESS:-127.0.0.1}:${HELP_PORT:-3001}:3001"
+      - "${HELP_BIND_ADDRESS:-0.0.0.0}:${HELP_PORT:-3001}:3001"
     security_opt:
       - no-new-privileges:true
     cap_drop:
