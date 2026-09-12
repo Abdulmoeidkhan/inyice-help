@@ -4,14 +4,36 @@ services:
     image: inyice-help:latest
     init: true
     restart: unless-stopped
-    ports:
-      - "${HELP_BIND_ADDRESS:-0.0.0.0}:${HELP_PORT:-3001}:3001"
+
+    environment:
+      HELP_BIND_ADDRESS: 0.0.0.0
+      HELP_PORT: "3001"
+
+    expose:
+      - "3001"
+
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.help.rule=Host(`help.inyice.com`) || Host(`www.help.inyice.com`)
+      - traefik.http.routers.help.entrypoints=websecure
+      - traefik.http.routers.help.tls.certresolver=letsencrypt
+      - traefik.http.services.help.loadbalancer.server.port=3001
+
+    networks:
+      - traefik_proxy
+
     security_opt:
       - no-new-privileges:true
+
     cap_drop:
       - ALL
+
     logging:
       driver: json-file
       options:
         max-size: "10m"
         max-file: "3"
+
+networks:
+  traefik_proxy:
+    external: true
