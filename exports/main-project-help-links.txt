@@ -11,7 +11,7 @@ Example: <a href="https://help.inyice.com/articles/orders-page" target="_blank" 
 Scope: all agency/public routes tracked by this help project; provider/internal pages are excluded.
 Confirm these patterns against the current main-project router before integrating.
 
-PORTAL PAGE MAPPINGS (39)
+PORTAL PAGE MAPPINGS (41)
 Route pattern | Page name | Help URL
 / | Dashboard | https://help.inyice.com/articles/dashboard
 /login | Sign In | https://help.inyice.com/articles/sign-in
@@ -26,6 +26,7 @@ Route pattern | Page name | Help URL
 /invoices | Invoices | https://help.inyice.com/articles/invoices-page
 /invoices/:uid | Invoice Details | https://help.inyice.com/articles/invoice-detail
 /reference-search | Reference Search | https://help.inyice.com/articles/reference-search
+/vat-calculator | VAT Calculator | https://help.inyice.com/articles/vat-calculator
 /receivings | Receivings | https://help.inyice.com/articles/receivings
 /profit-shares | Profit Shares | https://help.inyice.com/articles/profit-shares
 /payments | Customer Receipts | https://help.inyice.com/articles/customer-receipts
@@ -42,6 +43,7 @@ Route pattern | Page name | Help URL
 /reports/revenue | Revenue Report | https://help.inyice.com/articles/revenue-report
 /reports/performance | Performance Report | https://help.inyice.com/articles/performance-report
 /reports/profit | Profit Report | https://help.inyice.com/articles/profit-report
+/reports/tax | Tax Report | https://help.inyice.com/articles/tax-report
 /reports/discounts | Discount Report | https://help.inyice.com/articles/discount-report
 /reports/receipts | Receipt Report | https://help.inyice.com/articles/receipt-report
 /reports/payments | Payment Report | https://help.inyice.com/articles/payment-report
@@ -53,7 +55,7 @@ Route pattern | Page name | Help URL
 /shared/quotations/:token | Shared Quotation | https://help.inyice.com/articles/shared-quotation
 * | Page Not Found | https://help.inyice.com/articles/page-not-found
 
-ALL HELP GUIDES (54) — additional contextual links for tabs and actions
+ALL HELP GUIDES (58) — additional contextual links for tabs and actions
 Guide title | Portal navigation | Help URL
 Dashboard: review your workday | Dashboard | https://help.inyice.com/articles/dashboard
 Forgot Password: request a reset link | Login → Forgot password | https://help.inyice.com/articles/forgot-password
@@ -84,6 +86,10 @@ Customers: maintain customer records | Master Data → Customers | https://help.
 Vendors: maintain supplier records | Master Data → Vendors | https://help.inyice.com/articles/vendors-page
 User Profile: update your name | Profile menu → User Profile | https://help.inyice.com/articles/user-profile
 Page not found: return to your workspace | Page Not Found | https://help.inyice.com/articles/page-not-found
+Set up company invoice tax | Profiles → Company Profile → Invoice tax | https://help.inyice.com/articles/company-tax
+Read invoice tax, discounts, and refunds | Finance → Invoices → Invoice | https://help.inyice.com/articles/invoice-tax
+Tax Report: review charged and reversed tax | Reports → Tax Report | https://help.inyice.com/articles/tax-report
+VAT Calculator: calculate tax separately | Finance → VAT Calculator | https://help.inyice.com/articles/vat-calculator
 Set up your agency | Registration | https://help.inyice.com/articles/register-your-agency
 Sign in and manage your session | Login → Profile menu | https://help.inyice.com/articles/sign-in
 Find your way around inYice | Workspace sidebar | https://help.inyice.com/articles/navigate-workspace

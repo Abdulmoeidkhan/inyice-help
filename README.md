@@ -8,7 +8,7 @@ Step-by-step guidance for the inYice travel agency workspace, from your first bo
 
 [Help Center](https://help.inyice.com) · [Page Directory](https://help.inyice.com/pages) · [Integration File](exports/main-project-help-links.txt)
 
-**54 guides · 39 portal page mappings · 6 topics**
+**58 guides · 41 portal page mappings · 6 topics**
 
 ![inYice Help Center social preview](exports/social-preview.png)
 
@@ -28,8 +28,8 @@ Searchable guides, reviewed screenshots, and direct help links make it easier fo
 | Orders & vouchers | Create bookings, edit orders, and share travel documents |
 | Invoices & sharing | Manage invoices, understand statuses, and share documents |
 | Receipts & payments | Record customer and supplier transactions |
-| Reports & statements | Review financial activity, performance, and balances |
-| Company & team | Manage company details, users, customers, and vendors |
+| Reports & statements | Review financial activity, tax, performance, and balances |
+| Company & team | Manage company details, invoice tax settings, users, customers, and vendors |
 
 The site includes responsive layouts, light and dark themes, local search, printable articles, and browser-local feedback. One application serves the pages and assets. No database or external AI service is required.
 
@@ -53,11 +53,22 @@ npm start
 
 The build runs content tests, refreshes the help-links export, prerenders pages, and packages the server and assets into `.next/standalone`. `npm start` serves it on port `3001`. Set `PORT` or `HELP_HOSTNAME` to change the production port or listen address.
 
+## Tax documentation
+
+The help center covers company invoice tax settings, fixed rates and taxable service categories, inclusive/exclusive prices, discounts and refunds, the Tax Report, and the independent VAT Calculator. These guides describe the implemented workflow; country-specific tax rates are configured by the company.
+
+- [Company invoice tax](https://help.inyice.com/articles/company-tax)
+- [Invoice tax, discounts, and refunds](https://help.inyice.com/articles/invoice-tax)
+- [Tax Report](https://help.inyice.com/articles/tax-report) — portal route `/reports/tax`
+- [VAT Calculator](https://help.inyice.com/articles/vat-calculator) — portal route `/vat-calculator`
+
+Tax Report reads saved invoice and confirmed refund amounts and keeps currencies separate. Payments settle existing totals without adding tax again. Existing invoices retain their saved tax treatment when company settings change.
+
 ## Connect help icons to the main project
 
 **Copy [exports/main-project-help-links.txt](exports/main-project-help-links.txt) to the main project.**
 
-It contains **39 agency/public route mappings**, their relevant help URLs, and all **54 guides** for contextual links within tabs and actions.
+It contains **41 agency/public route mappings**, their relevant help URLs, and all **58 guides** for contextual links within tabs and actions.
 
 1. Match each main-project page to its route in the file.
 2. Add a help icon beside the page title with an accessible label and tooltip.

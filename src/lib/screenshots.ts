@@ -5,12 +5,19 @@ const dimensions: Record<string, [number, number]> = {
   flights: [1184, 1028], 'gds-parser': [1184, 1028], passengers: [1184, 1028],
   'vendor-refund-allocation': [1184, 1028],
   'forgot-password': [1440, 1000], 'reset-password': [1440, 1000],
+  'company-tax': [599, 499], 'invoice-tax': [282, 237],
+  'tax-report': [1184, 1028],
+  'vat-calculator-add': [1184, 1028], 'vat-calculator-extract': [1184, 1028],
 };
 const shot = (file: string, caption: string): HelpScreenshot => {
   const [width, height] = dimensions[file] ?? [1184, 928];
   return { src: `/images/portal/${file}.png`, caption, width, height };
 };
 export const screenshots: Record<string, HelpScreenshot[]> = {
+  'company-tax': [shot('company-tax', 'Invoice tax settings include the calculation switch, fixed rate, pricing mode, and taxable categories. The registration number is hidden; the displayed rate is a company setting.')],
+  'invoice-tax': [shot('invoice-tax', 'Invoice totals show the saved VAT rate, taxable net amount, tax registration, total, and balance due. Financial values and the registration number are hidden.')],
+  'tax-report': [shot('tax-report', 'Filter saved tax records and review tax charged, reversed, and net totals by currency. Record details and financial values are hidden.')],
+  'vat-calculator': [shot('vat-calculator-add', 'Add VAT example: net PKR 1,000.00 at an illustrative 10% rate gives PKR 100.00 VAT and PKR 1,100.00 gross.'), shot('vat-calculator-extract', 'Extract VAT example: gross PKR 1,100.00 at an illustrative 10% rate contains PKR 100.00 VAT and PKR 1,000.00 net.')],
   'dashboard': [shot('dashboard', 'Dashboard overview and upcoming travel activity.')],
   'navigate-workspace': [shot('dashboard', 'The agency dashboard is the starting point for your workday.')],
   'first-booking': [shot('create-order', 'Start with the customer, document type, and basic voucher information.')],
